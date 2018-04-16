@@ -3,6 +3,7 @@ ENV container docker
 # Don't start any optional services except for the few we need.
 
 
+
 #RUN apt-get update; apt-get -y upgrade
 #RUN apt-get -y install \
 #        rsyslog logrotate ssmtp logwatch \
