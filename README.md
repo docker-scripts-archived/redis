@@ -41,8 +41,8 @@ apt install -y redis-tools
 After that run `redis-cli -h redis` inside ds shell, then run `ping` inside the `redis-cli`
 
 ```
-redis root@redis:/host
-==> # redis-cli -h redis
+wsproxy root@wsproxy:/
+==> # redis-cli -h redis     
 redis:6379> ping
 PONG
 redis:6379> 
