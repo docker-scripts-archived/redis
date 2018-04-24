@@ -1,7 +1,4 @@
 APP=redis
-
-#VERSION=10.2    # 10.0 / 10.1 / 10.2 / 10.3
-
 IMAGE=redis
 CONTAINER=redis
 REDIS_PORT=6379
