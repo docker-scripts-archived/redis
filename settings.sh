@@ -1,9 +1,10 @@
-APP=mariadb
+APP=redis
 
-VERSION=10.2    # 10.0 / 10.1 / 10.2 / 10.3
+#VERSION=10.2    # 10.0 / 10.1 / 10.2 / 10.3
 
-IMAGE=mariadb
-CONTAINER=mariadb
+IMAGE=redis
+CONTAINER=redis
+PORT=6379
 
 ### Gmail account for notifications.
 ### Make sure to enable less-secure-apps:
