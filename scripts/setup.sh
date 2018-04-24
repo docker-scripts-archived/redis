@@ -13,4 +13,4 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
 sed -e 's/^bind-address/#bind-address/' #-i /etc/mysql/my.cnf 
 
 # runs redis server
-redis-server --port $PORT & # default at 6379 
+redis-server --port $REDIS_PORT & # default at 6379 

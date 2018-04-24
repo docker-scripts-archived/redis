@@ -4,7 +4,8 @@ APP=redis
 
 IMAGE=redis
 CONTAINER=redis
-PORT=6379
+REDIS_PORT=6379
+PORTS=$REDIS_PORT:$REDIS_PORT
 
 ### Gmail account for notifications.
 ### Make sure to enable less-secure-apps:
