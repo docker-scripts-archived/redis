@@ -1,44 +1,13 @@
-redis
+# MariaDB in a Container
 
-Installation
-------------
+## Installation
 
- + First install `ds` (docker scripts):
-   https://github.com/docker-scripts/ds#installation
+  - First install `ds`: https://github.com/docker-scripts/ds#installation
 
- + Then get redis from github: `ds pull redis`
+  - Then get the scripts from github: `ds pull mariadb`
 
- + Init a container directory for redis: `ds init redis @redis`
+  - Create a directory for the container: `ds init mariadb @mariadb`
 
- + Initialize and fix the settings:
-   ```
-   cd /var/ds/redis
-   vim settings.sh
-   ds info
-   ```
+  - Fix the settings: `cd /var/ds/mariadb/ ; vim settings.sh`
 
- + Build image, create the container and configure it:
-   ```
-   ds build
-   ds create
-   ds config
-   ```
-
-
-Usage
------
-
- + Create the containers of each webserver using commands like this:
- to run
-   ```
-   docker run --name redis_instance -t redis-server
-   ```
-
-   redis is available at port 6379
-
-
- + To stop
-
-   ```
-   docker stop redis_instance
-   ```
+  - Build image, create the container and configure it: `ds make`
