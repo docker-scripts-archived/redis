@@ -10,7 +10,7 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
    -o Dpkg::Options::="--force-confold" \
 
 ### allow requests from the network
-#sed -e 's/^bind-address/#bind-address/' #-i /etc/mysql/my.cnf 
+sed -e 's/^bind/#bind/' -i /etc/redis/redis.cnf 
 
 # runs redis server
 redis-server --port $REDIS_PORT & # default at 6379 
