@@ -1,44 +1,50 @@
-redis
+# Redis in a Container
 
-Installation
-------------
+## Installation
 
- + First install `ds` (docker scripts):
-   https://github.com/docker-scripts/ds#installation
+  - First install `ds`: https://github.com/docker-scripts/ds#installation
 
- + Then get redis from github: `ds pull redis`
+  - Then get the scripts from github: `ds pull redis`
 
- + Init a container directory for redis: `ds init redis @redis`
+  - Create a directory for the container: `ds init redis @redis`
 
- + Initialize and fix the settings:
-   ```
-   cd /var/ds/redis
-   vim settings.sh
-   ds info
-   ```
+  - Go to /var/ds/redis with `cd /var/ds/redis/ `
 
- + Build image, create the container and configure it:
-   ```
-   ds build
-   ds create
-   ds config
-   ```
+  - Edit settings if necessary `vim settings.sh`
+    - Default Redis port is 6379
 
+  - Build image, create the container and configure it: 
+  
+```
+ds build
+ds create
+ds config
+```
 
-Usage
------
+## Test Redis server connection from other container
 
- + Create the containers of each webserver using commands like this:
- to run
-   ```
-   docker run --name redis_instance -t redis-server
-   ```
+You can test whether other docker containers can access the Redis server
 
-   redis is available at port 6379
+Example: If you installed docker-scripts wsproxy, start its shell
+```
+cd /var/ds/wsproxy
+ds shell
+```
 
+Then inside the container shell:
+Install `redis-tools`
 
- + To stop
+```
+apt install -y redis-tools
+```
 
-   ```
-   docker stop redis_instance
-   ```
+After that run `redis-cli -h redis` inside ds shell, then run `ping` inside the `redis-cli`
+
+```
+wsproxy root@wsproxy:/
+==> # redis-cli -h redis     
+redis:6379> ping
+PONG
+redis:6379> 
+```
+
