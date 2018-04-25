@@ -11,6 +11,3 @@ DEBIAN_FRONTEND=noninteractive apt-get -y install \
 
 ### allow requests from the network
 sed -e 's/^bind/#bind/' -i /etc/redis/redis.conf 
-
-# runs redis server
-#redis-server --port $REDIS_PORT & # default at 6379 
