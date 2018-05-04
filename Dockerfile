@@ -11,13 +11,7 @@ RUN find /etc/systemd/system \
 RUN systemctl set-default multi-user.target
 CMD ["/sbin/init"]
 
-RUN apt-get update
-#; apt-get -y upgrade
-RUN apt-get -y install rsyslog logrotate ssmtp logwatch cron vim
-
-# TODO: Dockerfile cannot parse settings.sh.
-# If user changes default port number 6379 inside settings.sh
-# (s)he need also to explicitly edit this EXPOSE argument here.
-EXPOSE 6379
+RUN apt update && apt -y upgrade
+RUN apt -y install rsyslog logrotate ssmtp logwatch cron vim
 
 WORKDIR /host
